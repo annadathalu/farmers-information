@@ -11,7 +11,7 @@
         }
 
         h1 {
-            color: rgb(255, 106, 0);
+            color: rgb(255, 100, 0);
             font-size: 4em; /* Increase font size */
             text-align: left; /* Align to the left side */
             margin-bottom: 120px;
@@ -48,38 +48,70 @@
             background-size: 4em 2em; /* Increase arrow size (4 times wider, 2 times taller) */
         }
 
-        #farmerDetails {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-        }
-
-        p {
-            margin: 5px 0;
-            font-size: 2em; /* Increase font size */
-            text-align: left; /* Align to the left side */
-        }
-
         /* Style the image to match the label font size */
         img.label-image {
             font-size: 2em;
             vertical-align: middle;
         }
+
+        /* Use a more specific selector and !important to override conflicting styles */
+        #farmerDetails p {
+            font-size: 2em !important; /* Adjust the font size as needed */
+        }
+        
+        /* Add a CSS rule specifically for the select element with id="languageToggle" */
+        #languageToggle {
+            /* Change label size */
+            font-size: 2em;
+            /* Change background color */
+            background-color: rgb(173, 216, 230); /* You can change the color to your preference */
+            /* Add any other styling you want for this specific select element */
+        }
+
+        /* Style the options within the select element */
+        #languageToggle option {
+            /* Change option font size */
+            font-size: 1.5em;
+            /* Change option background color */
+            background-color: lightblue; /* You can change the color to your preference */
+            /* Add any other styling you want for the options */
+        }
+
+        label[for="languageToggle"] {
+        /* Change label font size */
+        font-size: 1.5em;
+        /* Change background color of the box */
+        background-color: rgb(236, 236, 136); 
+        /* Change label text color */
+        color: rgb(1, 1, 10); /* You can change the color to your preference */
+        /* Add any other styling you want for the label */
+        }   
+        
+        /* Remove background image for the select element with the no-background-image class */
+        .no-background-image {
+            background-image: none !important;
+        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <!-- Include your JavaScript file -->
     <script src="script.js"></script> <!-- Replace "script.js" with the actual file path if needed -->
-
-
 </head>
 <body>
+    <div>
+        <label for="languageToggle">Language/భాష:</label>
+        <select id="languageToggle" class="no-background-image">
+            <option value="tel">తెలుగు</option>
+            <option value="eng">English</option>
+        </select>
+    </div>
+    
     <!-- Display the heading with the icon -->
     <h1>రైతుల సమాచారం <img class="icon-image" src="icon.jpg" alt="Icon Image"></h1>
     
     <!-- Display the label and image -->
     <label for="farmerNameDropdown" style="color: rgb(255, 255, 255);">రైతును ఎంచుకోండి:</label>
-    <select id="farmerNameDropdown"></select>
+    <select id="farmerNameDropdown" class="select"></select>
     
     <!-- Display other columns' details here -->
     <div id="farmerDetails"></div>
